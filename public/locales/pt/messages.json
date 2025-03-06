@@ -27,7 +27,8 @@
     "recover_button": "Recover",
     "remember_password": "Remembered your password?",
     "recover_success": "Recovering email successfully sent!",
-    "recover_error": "Error recovering password."
+    "recover_error": "Error recovering password.",
+    "login_here": "Login"
   },
   "register": {
     "title": "JobSphere - Register",

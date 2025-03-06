@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"; // Hooks do React
 import Image from "next/image"; // Componente otimizado para imagens
+import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify"; // Biblioteca para mensagens interativas
 import "react-toastify/dist/ReactToastify.css"; // Estilos do Toastify
 import Input from "../components/ui/Input"; // Componente reutilizável de Input
@@ -13,6 +14,7 @@ export default function RecoverPassword() {
   const router = useRouter(); // Instância do router para navegação
   const emailInputRef = useRef(null); // Referência para focar o input ao carregar
   const [isLoading, setIsLoading] = useState(true); // Estado para loading inicial
+  const [darkMode, setDarkMode] = useState(false);
 
   // ✅ Focar no input ao carregar a página e simular um carregamento inicial
   useEffect(() => {
@@ -57,8 +59,29 @@ export default function RecoverPassword() {
     }
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const newMode = !prev;
+      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      if (newMode) {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+      return newMode;
+    });
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-black text-white relative">
+    <>
+      {/* ✅ SEO Tags */}
+      <Head>
+        <title>JobSphere - Recover Password</title>
+        <meta name="description" content="Login para acesso a serviços." />
+        <link rel="icon" href="/darkLogo.svg" />
+      </Head>
+    
+      <div className="flex items-center justify-center min-h-screen grad-bg login-txt-header relative">
       
       {/* ✅ Ecrã de carregamento antes de exibir o formulário */}
       {isLoading && (
@@ -70,11 +93,11 @@ export default function RecoverPassword() {
 
       {/* ✅ Formulário de recuperação de senha */}
       {!isLoading && (
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md border border-gray-700 flex flex-col items-center">
+        <div className="login-form-bg p-8 rounded-lg shadow-lg w-full max-w-md border border-form flex flex-col items-center">
           
           {/* ✅ Logo e título */}
           <div className="flex items-center space-x-3 mb-4">
-            <Image src="/nextjs-icon.svg" alt="Next.js Logo" width={40} height={40} />
+            {darkMode ? <Image src="/lightLogo.png" alt="JobSphere Logo" width={40} height={40} /> : <Image src="/darkLogo.svg" alt="JobSphere Logo" width={40} height={40} />}
             <h2 className="text-2xl font-semibold">{messages.recover?.title}</h2>
           </div>
 
@@ -97,9 +120,9 @@ export default function RecoverPassword() {
               {messages.recover?.remember_password}{" "}
               <a 
                 onClick={() => router.push("/auth")} 
-                className="text-blue-400 hover:underline cursor-pointer"
+                className="text-black hover:underline cursor-pointer"
               >
-                {messages.auth?.login_title}
+                {messages.recover?.login_here}
               </a>
             </p>
           </form>
@@ -109,5 +132,13 @@ export default function RecoverPassword() {
       {/* ✅ Mensagens interativas */}
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
+
+    {/* Dark Mode Toggle */}
+    <button 
+          onClick={toggleDarkMode} 
+          className="absolute top-4 left-4 p-2 bg-btn-theme text-white rounded-full">
+          {darkMode ? '🌙' : '☀️'}
+      </button>
+    </>
   );
 }
