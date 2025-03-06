@@ -14,6 +14,7 @@ export default function WelcomePage() {
 
   useEffect(() => {
     const checkSession = async () => {
+      
       try {
         // 🚀 Verifica a sessão do utilizador na API
         const { data } = await axiosInstance.get("/api/session", { timeout: 5000 });

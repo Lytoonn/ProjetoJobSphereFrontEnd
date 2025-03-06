@@ -21,6 +21,7 @@ export default function Register() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    
     if (emailInputRef.current) {
       emailInputRef.current.focus();
     }

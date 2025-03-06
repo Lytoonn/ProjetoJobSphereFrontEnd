@@ -16,8 +16,21 @@ export default function RecoverPassword() {
   const [isLoading, setIsLoading] = useState(true); // Estado para loading inicial
   const [darkMode, setDarkMode] = useState(false);
 
-  // ✅ Focar no input ao carregar a página e simular um carregamento inicial
   useEffect(() => {
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setDarkMode(savedTheme === 'dark');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+    } else {
+      // Default to light mode if no preference is saved
+      setDarkMode(false);
+    }
+
     if (emailInputRef.current) {
       emailInputRef.current.focus();
     }
