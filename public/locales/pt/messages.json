@@ -1,0 +1,56 @@
+{
+  "auth": {
+    "login_title": "JobSphere - Login",
+    "email_label": "Email",
+    "password_label": "Password",
+    "login_button": "Login",
+    "recover_password": "Recover Password",
+    "no_account": "Don't have an account?",
+    "register_here": "Register",
+    "login_success": "Login successfully made!",
+    "login_error": "Error connecting. Try again later.",
+    "user_not_found": "Email and password don't match or not exist. Try again.",
+    "loading_auth": "Authenticating...",
+    "verifying": "Checking connection..."
+  },
+  "database": {
+    "db_online": "Database Online",
+    "db_offline": "Database Offline",
+    "db_offline_message": "The database is unavailable. Try again later."
+  },
+  "server": {
+    "server_offline": "Error connecting to the server."
+  },
+  "recover": {
+    "title": "Recover Password",
+    "email_label": "Email",
+    "recover_button": "Recover",
+    "remember_password": "Remembered your password?",
+    "recover_success": "Recovering email successfully sent!",
+    "recover_error": "Error recovering password."
+  },
+  "register": {
+    "title": "JobSphere - Register",
+    "email_label": "Email",
+    "password_label": "Password",
+    "confirm_password_label": "Confirm Password",
+    "register_button": "Register",
+    "account_exists": "Already have an account?",
+    "login_here": "Login",
+    "password_mismatch": "Passwords don't match!",
+    "register_success": "Account successfully created!",
+    "register_error": "Error creating an account. Try again later."
+  },
+  "error": {
+    "page_not_found": "Sorry, I couldn't find the page :(",
+    "server_error": "Error connecting the server",
+    "redirecting_auth": "Redirecting the login..."
+  },
+  "welcome": {
+    "title": "Welcome!",
+    "session_expired": "Session expired. Redirecting..."
+  },
+  "button": {
+    "loading": "Checking your session..."
+  }
+}

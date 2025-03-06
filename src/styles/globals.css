@@ -1,26 +1,133 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ✅ Definição global do `body` para toda a aplicação */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    @apply bg-black text-white font-sans;
+    min-height: 100vh; /* Garante que ocupa toda a tela */
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6; /* Melhora a legibilidade */
+    letter-spacing: 0.5px; /* Pequeno ajuste de espaçamento entre letras */
+    overflow-x: hidden; /* Evita scroll lateral */
+}
+
+/* ✅ Melhor acessibilidade para inputs */
+input {
+    @apply focus:ring focus:ring-blue-400 focus:outline-none;
+    transition: border 0.2s ease-in-out;
+}
+
+/* ✅ Botões com animação no hover */
+button {
+    @apply cursor-pointer transition-transform transform hover:scale-105;
+}
+
+.grad-bg{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(193, 190, 255) 100%);
+}
+
+.login-form-bg{
+    background: #cac7ff;
+}
+
+.login-txt-header{
+    color: #030020
+}
+
+.login-txt-form{
+    color: #211e3b
+}
+
+.input-form{
+    background-color: #FFF;
+}
+
+.border-form{
+    border-color: #1b0047;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+  
+button {
+    transition: all 0.3s ease;
+}
+  
+body.dark .login-form-bg {
+    background-color: #333;
+}
+  
+body.dark .grad-bg {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(50, 50, 50) 100%);
+}
+  
+body.dark .login-txt-header {
+    color: #e0e0e0;
+}
+  
+body.dark .login-txt-form {
+    color: #ddd;
+}
+  
+body.dark .text-black {
+    color: #ddd;
+}
+
+body.dark .bg-btn-theme{
+    background-color: #1a1a1a;
+    color: #FFF
+}
+
+body.dark .input-form{
+    background-color: #222222;
+}
+
+body.dark .border-form{
+    border-color: #bebebe
+}
+
+.bg-btn-theme{
+    background-color: #FFF;
+    color: #000
+}
+
+.submit-btn-theme{
+    background-color: #FFF;
+    color: #1b0047;
+}
+
+body.dark .submit-btn-theme{
+    background-color: #1a1a1a;
+    color: #FFF
+}
+
+.submit-btn-theme:hover{
+    background-color: #e9e7ff;
+    color: #0f0025;
+}
+
+body.dark .submit-btn-theme:hover{
+    background-color: #252525;
+    color: #FFF
+}
+
+.input-form-theme{
+    background-color: #FFF;
+    color: #1b0047;
+    border-color: #1b0047;
+}
+
+.input-form-theme:focus{
+    border-color: #000;
+}
+
+body.dark .input-form-theme{
+    background-color: #252525;
+    color: #FFF;
+    border-color: #bebebe
 }
