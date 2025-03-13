@@ -68,16 +68,16 @@ export default function JobSearchPage() {
   ];
 
   return (
-    <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
+    <div className={`min-h-screen font-sans ${darkMode ? "dark" : ""}`}>
       {/* Navbar */}
       <nav className="grad-bg p-4 flex justify-between items-center">
-        <h1 className={`text-xl font-bold ${darkMode ? "text-white" : "text-black"}`}>
-          Bem-vindo, {sessionData?.user.email}
+        <h1 className="text-xl font-bold header-txt">
+          Welcome, {sessionData?.user.email || "User"}
         </h1>
         <div className="flex space-x-4">
           <button 
             onClick={toggleDarkMode} 
-            className="p-2 bg-btn-theme text-white rounded-full">
+            className="p-2 bg-btn-theme rounded-full">
             {darkMode ? '🌙' : '☀️'}
           </button>
           <button
@@ -90,15 +90,15 @@ export default function JobSearchPage() {
       </nav>
 
       {/* Job Listings */}
-      <div className="p-6 max-w-4xl mx-auto job-cards">
-        <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
+      <div className="p-6 max-w-4xl mx-auto">
+        <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? "text-white" : "text-black"}`}>Job Opportunities</h2>
         <div className="space-y-4">
           {jobs.map((job) => (
-            <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
+            <div key={job.id} className="p-4 rounded-md shadow-md job-theme">
               <h3 className="text-xl font-bold job-title">{job.title}</h3>
               <p className="job-company">{job.company} - {job.location}</p>
               <button className="mt-2 font-bold py-1 px-4 rounded job-button">
-                Candidatar-se
+                Apply
               </button>
             </div>
           ))}

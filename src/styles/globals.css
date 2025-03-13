@@ -4,7 +4,7 @@
 
 /* ✅ Definição global do `body` para toda a aplicação */
 body {
-    @apply bg-black text-white font-sans;
+    @apply bg-white text-black font-sans;
     min-height: 100vh; /* Garante que ocupa toda a tela */
     margin: 0;
     padding: 0;
@@ -12,6 +12,7 @@ body {
     line-height: 1.6; /* Melhora a legibilidade */
     letter-spacing: 0.5px; /* Pequeno ajuste de espaçamento entre letras */
     overflow-x: hidden; /* Evita scroll lateral */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ✅ Melhor acessibilidade para inputs */
@@ -27,26 +28,32 @@ button {
 
 .grad-bg{
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(193, 190, 255) 100%);
+    transition: background 0.3s ease;
 }
 
 .login-form-bg{
     background: #cac7ff;
+    transition: background-color 0.3s ease;
 }
 
 .login-txt-header{
-    color: #030020
+    color: #030020;
+    transition: color 0.3s ease;
 }
 
 .login-txt-form{
-    color: #211e3b
+    color: #211e3b;
+    transition: color 0.3s ease;
 }
 
 .input-form{
     background-color: #FFF;
+    transition: background-color 0.3s ease;
 }
 
 .border-form{
     border-color: #1b0047;
+    transition: border-color 0.3s ease;
 }
 
 body.dark {
@@ -94,11 +101,13 @@ body.dark .border-form{
 .bg-btn-theme{
     background-color: #FFF;
     color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .submit-btn-theme{
     background-color: #FFF;
     color: #1b0047;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark .submit-btn-theme{
@@ -120,6 +129,7 @@ body.dark .submit-btn-theme:hover{
     background-color: #FFF;
     color: #1b0047;
     border-color: #1b0047;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .input-form-theme:focus{
@@ -132,72 +142,60 @@ body.dark .input-form-theme{
     border-color: #bebebe
 }
 
-nav .grad-bg{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(193, 190, 255) 100%);
+.header-txt {
+    color: #030020;
+    transition: color 0.3s ease;
 }
 
-nav.dark .grad-bg{
-    background: linear-gradient(90deg, rgb(75, 75, 75) 0%, rgb(50, 50, 50) 100%);
-}
-
-nav.dark .header-txt{
+body.dark .header-txt {
     color: #e9e9e9;
 }
 
-nav .header-txt{
-    color: #e9e9e9;
+/* Job cards styling */
+.job-theme {
+    background: linear-gradient(90deg, rgb(237, 218, 255) 0%, rgb(193, 190, 255) 100%);
+    transition: background 0.3s ease;
 }
 
-body .job-theme{
-    background-color: (90deg, rgb(237, 218, 255) 0%, rgb(193, 190, 255) 100%);
+body.dark .job-theme {
+    background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(22, 22, 22) 100%);
 }
 
-body.dark .job-theme{
-    background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(0, 0, 0) 100%);
-}
-
-body .job-cards{
-    background-color: #CAC7FF;
-}
-
-body.dark .job-cards{
-    background-color: #333333;
-}
-
-body .job-title{
+.job-title {
     color: #13002e;
+    transition: color 0.3s ease;
 }
 
-body.dark .job-title{
+body.dark .job-title {
     color: #ffffff;
 }
 
-body .job-company{
+.job-company {
     color: #523a61;
+    transition: color 0.3s ease;
 }
 
-body.dark .job-company{
+body.dark .job-company {
     color: #a9a9a9;
 }
 
-body .job-button{
+.job-button {
     background-color: #1B0047;
     color: #fefefe;
-
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark .job-button{
+body.dark .job-button {
     background-color: #BEBEBE;
     color: #030303;
 }
 
-body .job-button:hover{
+.job-button:hover {
     background-color: #3d1d6f;
     color: #e0e0e0;
-    
 }
 
-body.dark .job-button:hover{
+body.dark .job-button:hover {
     background-color: #b0afaf;
     color: #242424;
 }
