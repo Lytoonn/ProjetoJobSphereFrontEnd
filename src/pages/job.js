@@ -198,7 +198,7 @@ export default function Job() {
         <div className="mb-4">
           <Link href="/welcome">
             <a className="flex items-center page-text hover:underline">
-              <span>← Voltar para vagas</span>
+              <span>← Back to jobs</span>
             </a>
           </Link>
         </div>
@@ -242,10 +242,12 @@ export default function Job() {
           </div>
           
           <div className="mt-6">
+            <Link href="/welcome">
             <button 
               className="font-bold py-2 px-6 rounded-md job-button">
               Apply
             </button>
+            </Link>
           </div>
         </div>
       </div>
