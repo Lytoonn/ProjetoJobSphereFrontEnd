@@ -242,7 +242,7 @@ export default function Job() {
           
           <div className="mt-6">
             <button className="font-bold py-2 px-6 rounded-md job-button">
-              Candidatar-se
+              Apply
             </button>
           </div>
         </div>
