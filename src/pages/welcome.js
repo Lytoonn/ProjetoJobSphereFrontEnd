@@ -12,6 +12,19 @@ export default function JobSearchPage() {
   const router = useRouter();
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setDarkMode(savedTheme === 'dark');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
+      }
+    } else {
+      // Default to light mode if no preference is saved
+      setDarkMode(false);
+    }
+
     const checkSession = async () => {
       try {
         const { data } = await axiosInstance.get("/api/session", { timeout: 5000 });
@@ -51,11 +64,10 @@ export default function JobSearchPage() {
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Bem-vindo, {sessionData?.user.email || "Usuário"}</h1>
         <div className="flex space-x-4">
-          <button
-            onClick={toggleDarkMode}
-            className="bg-btn-theme py-2 px-4 rounded"
-          >
-            {darkMode ? "Modo Claro" : "Modo Escuro"}
+          <button 
+              onClick={toggleDarkMode} 
+              className="absolute top-4 left-4 p-2 bg-btn-theme text-white rounded-full">
+              {darkMode ? '🌙' : '☀️'}
           </button>
           <button
             onClick={handleLogout}
