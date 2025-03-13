@@ -6,7 +6,7 @@ import useMessages from "../hooks/useMessages";
 import axiosInstance from "../lib/axiosInstance";
 import Link from "next/link";
 
-export default function JobDetailsPage() {
+export default function Job() {
   const messages = useMessages();
   const [sessionData, setSessionData] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
@@ -130,7 +130,7 @@ export default function JobDetailsPage() {
         setJobDetails(job);
       } else {
         toast.error("Vaga não encontrada");
-        router.push("/job-search");
+        router.push("/welcome");
       }
     } catch (error) {
       console.error("Erro ao carregar detalhes da vaga:", error);
@@ -195,7 +195,7 @@ export default function JobDetailsPage() {
       {/* Job Details */}
       <div className="p-6 max-w-4xl mx-auto">
         <div className="mb-4">
-          <Link href="/job-search">
+          <Link href="/welcome">
             <a className="flex items-center page-text hover:underline">
               <span>← Voltar para vagas</span>
             </a>

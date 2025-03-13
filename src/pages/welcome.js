@@ -6,7 +6,7 @@ import useMessages from "../hooks/useMessages";
 import axiosInstance from "../lib/axiosInstance";
 import Link from "next/link";
 
-export default function JobSearchPage() {
+export default function Welcome() {
   const messages = useMessages();
   const [sessionData, setSessionData] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
@@ -102,7 +102,7 @@ export default function JobSearchPage() {
         <div className="space-y-4">
           {jobs.map((job) => (
             <div key={job.id} className="p-4 rounded-md shadow-md job-theme">
-              <Link href={`/job/${job.id}`}>
+              <Link href={`/job?id=${job.id}`}>
                 <a className="cursor-pointer">
                   <h3 className="text-xl font-bold job-title hover:underline">{job.title}</h3>
                 </a>
