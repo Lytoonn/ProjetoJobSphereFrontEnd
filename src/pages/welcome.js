@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useMessages from "../hooks/useMessages";
 import axiosInstance from "../lib/axiosInstance";
+import Link from "next/link";
 
 export default function JobSearchPage() {
   const messages = useMessages();
@@ -101,7 +102,11 @@ export default function JobSearchPage() {
         <div className="space-y-4">
           {jobs.map((job) => (
             <div key={job.id} className="p-4 rounded-md shadow-md job-theme">
-              <h3 className="text-xl font-bold job-title">{job.title}</h3>
+              <Link href={`/job/${job.id}`}>
+                <a className="cursor-pointer">
+                  <h3 className="text-xl font-bold job-title hover:underline">{job.title}</h3>
+                </a>
+              </Link>
               <p className="job-company">{job.company} - {job.location}</p>
               <button className="mt-2 font-bold py-1 px-4 rounded job-button">
                 Apply
