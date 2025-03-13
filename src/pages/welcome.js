@@ -64,16 +64,16 @@ export default function JobSearchPage() {
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Bem-vindo, {sessionData?.user.email || "Usuário"}</h1>
         <div className="flex space-x-4">
+          <button
+              onClick={handleLogout}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Logout
+          </button>
           <button 
               onClick={toggleDarkMode} 
               className="absolute top-4 left-4 p-2 bg-btn-theme text-white rounded-full">
               {darkMode ? '🌙' : '☀️'}
-          </button>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Logout
           </button>
         </div>
       </nav>
