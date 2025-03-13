@@ -8,6 +8,7 @@ import axiosInstance from "../lib/axiosInstance";
 export default function JobSearchPage() {
   const messages = useMessages();
   const [sessionData, setSessionData] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,6 +35,10 @@ export default function JobSearchPage() {
     router.push("/auth");
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   const jobs = [
     { id: 1, title: "Desenvolvedor Frontend", company: "Tech Corp", location: "Remoto" },
     { id: 2, title: "Engenheiro de Software", company: "InovaTech", location: "Lisboa, Portugal" },
@@ -41,16 +46,24 @@ export default function JobSearchPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
       {/* Navbar */}
       <nav className="bg-gray-800 p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">Bem-vindo, {sessionData?.user.email || "Usuário"}</h1>
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Logout
-        </button>
+        <div className="flex space-x-4">
+          <button
+            onClick={toggleDarkMode}
+            className="bg-btn-theme py-2 px-4 rounded"
+          >
+            {darkMode ? "Modo Claro" : "Modo Escuro"}
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Logout
+          </button>
+        </div>
       </nav>
 
       {/* Job Listings */}
