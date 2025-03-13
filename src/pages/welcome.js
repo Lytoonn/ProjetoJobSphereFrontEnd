@@ -71,7 +71,7 @@ export default function JobSearchPage() {
     <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
       {/* Navbar */}
       <nav className="grad-bg p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Bem-vindo, {sessionData?.user.email || "Usuário"}</h1>
+        <h1 className="text-xl font-bold header-txt">Bem-vindo, {sessionData?.user.email}</h1>
         <div className="flex space-x-4">
           <button 
             onClick={toggleDarkMode} 
