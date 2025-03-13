@@ -4,7 +4,7 @@
 
 /* ✅ Definição global do `body` para toda a aplicação */
 body {
-    background-color: #ffffff;
+    background: linear-gradient(90deg, rgb(246, 237, 255) 0%, rgb(233, 205, 255) 100%);
     color: #000000;
     min-height: 100vh; /* Garante que ocupa toda a tela */
     margin: 0;
@@ -18,7 +18,7 @@ body {
 
 /* Dark mode for body */
 body.dark {
-    background-color: #121212;
+    background: linear-gradient(90deg, rgb(29, 29, 29) 0%, rgb(0, 0, 0) 100%);
     color: #ffffff;
 }
 
@@ -205,10 +205,6 @@ body.dark .job-button:hover {
     color: #242424;
 }
 
-body.dark .job-theme-bg{
+body.dark{
     background: linear-gradient(90deg, rgb(29, 29, 29) 0%, rgb(0, 0, 0) 100%);
-}
-
-.job-theme-bg{
-    background: linear-gradient(90deg, rgb(246, 237, 255) 0%, rgb(233, 205, 255) 100%);
 }
