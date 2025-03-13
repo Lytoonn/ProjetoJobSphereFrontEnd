@@ -5,11 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import useMessages from "../hooks/useMessages";
 import axiosInstance from "../lib/axiosInstance";
 
-export default function WelcomePage() {
+export default function JobSearchPage() {
   const messages = useMessages();
   const [sessionData, setSessionData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,23 +20,8 @@ export default function WelcomePage() {
         setSessionData(data);
       } catch (error) {
         console.error("Erro na API:", error.message || error);
-        let errorMessage = messages.error?.server_error;
-        if (error.response) {
-          if (error.response.status === 404) {
-            errorMessage = messages.error?.session_not_found;
-          } else if (error.response.status === 500) {
-            errorMessage = messages.error?.server_error;
-          }
-        } else if (error.code === "ECONNABORTED") {
-          errorMessage = messages.error?.server_timeout;
-        } else if (error.message.includes("Network Error")) {
-          errorMessage = messages.error?.server_unavailable;
-        }
-        toast.error(errorMessage);
+        toast.error("Erro ao carregar sessão");
         setTimeout(() => router.push("/auth"), 2000);
-      } finally {
-        setLoading(false);
-        setTimeout(() => setIsLoading(false), 1000);
       }
     };
 
@@ -47,39 +30,44 @@ export default function WelcomePage() {
 
   const handleLogout = async () => {
     await axiosInstance.post("/api/logout");
-    toast.info(messages.auth?.logout_success);
+    toast.info("Sessão encerrada");
     router.push("/auth");
   };
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-4 relative">
-      {isLoading && (
-        <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-white mb-4"></div>
-          <p className="text-lg font-semibold text-white">A carregar...</p>
-        </div>
-      )}
+  const jobs = [
+    { id: 1, title: "Desenvolvedor Frontend", company: "Tech Corp", location: "Remoto" },
+    { id: 2, title: "Engenheiro de Software", company: "InovaTech", location: "Lisboa, Portugal" },
+    { id: 3, title: "Analista de Dados", company: "Data Insights", location: "Porto, Portugal" },
+  ];
 
-      {!isLoading && (
-        <>
-          {loading ? (
-            <p className="text-gray-400">{messages.button?.loading}</p>
-          ) : sessionData ? (
-            <div className="bg-gray-800 text-gray-300 p-6 rounded-md w-full max-w-md border border-gray-700 shadow-lg text-center">
-              <h1 className="text-2xl font-bold text-blue-400">{messages.welcome?.greeting}, {sessionData.user.username}!</h1>
-              <p className="mt-2 text-gray-400">{messages.welcome?.message}</p>
-              <button
-                onClick={handleLogout}
-                className="mt-6 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full transition-transform transform hover:scale-105"
-              >
-                {messages.auth?.logout_button || "Sair"}
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Navbar */}
+      <nav className="bg-gray-800 p-4 flex justify-between items-center">
+        <h1 className="text-xl font-bold">Bem-vindo, {sessionData?.user.email || "Usuário"}</h1>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Logout
+        </button>
+      </nav>
+
+      {/* Job Listings */}
+      <div className="p-6 max-w-4xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
+        <div className="space-y-4">
+          {jobs.map((job) => (
+            <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
+              <h3 className="text-xl font-bold text-blue-400">{job.title}</h3>
+              <p className="text-gray-300">{job.company} - {job.location}</p>
+              <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                Candidatar-se
               </button>
             </div>
-          ) : (
-            <p className="text-gray-400">{messages.welcome?.session_expired}</p>
-          )}
-        </>
-      )}
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
