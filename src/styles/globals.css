@@ -131,3 +131,19 @@ body.dark .input-form-theme{
     color: #FFF;
     border-color: #bebebe
 }
+
+nav .grad-bg{
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(193, 190, 255) 100%);
+}
+
+nav.dark .grad-bg{
+    background: linear-gradient(90deg, rgb(75, 75, 75) 0%, rgb(50, 50, 50) 100%);
+}
+
+nav.dark .header-txt{
+    color: #e9e9e9
+}
+
+nav .header-txt{
+    color: #2e2e2e
+}
