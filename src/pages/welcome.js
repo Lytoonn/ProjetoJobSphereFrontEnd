@@ -68,29 +68,30 @@ export default function JobSearchPage() {
   ];
 
   return (
-    <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
-      {/* Navbar */}
-      <nav className="grad-bg p-4 flex justify-between items-center">
-      <h1 className={`text-xl font-bold ${darkMode ? "text-white" : "text-black"}`}>
-        Bem-vindo, {sessionData?.user.email}
-      </h1>
-        <div className="flex space-x-4">
-          <button 
-            onClick={toggleDarkMode} 
-            className="p-2 bg-btn-theme text-white rounded-full">
-            {darkMode ? '🌙' : '☀️'}
-          </button>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Logout
-          </button>
-        </div>
-      </nav>
+    <body className="job-theme">
+      <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
+        {/* Navbar */}
+        <nav className="grad-bg p-4 flex justify-between items-center">
+        <h1 className={`text-xl font-bold ${darkMode ? "text-white" : "text-black"}`}>
+          Bem-vindo, {sessionData?.user.email}
+        </h1>
+          <div className="flex space-x-4">
+            <button 
+              onClick={toggleDarkMode} 
+              className="p-2 bg-btn-theme text-white rounded-full">
+              {darkMode ? '🌙' : '☀️'}
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Logout
+            </button>
+          </div>
+        </nav>
 
       {/* Job Listings */}
-      <body className="job-theme">
+      
         <div className="p-6 max-w-4xl mx-auto job-cards">
           <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
           <div className="space-y-4">
@@ -105,7 +106,7 @@ export default function JobSearchPage() {
             ))}
           </div>
         </div>
-        </body>
       </div>
+      </body>
   );
 }
