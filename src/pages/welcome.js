@@ -72,7 +72,7 @@ export default function JobSearchPage() {
           </button>
           <button 
               onClick={toggleDarkMode} 
-              className="absolute top-4 left-4 p-2 bg-btn-theme text-white rounded-full">
+              className="absolute top-4 right-4 p-2 bg-btn-theme text-white rounded-full">
               {darkMode ? '🌙' : '☀️'}
           </button>
         </div>
