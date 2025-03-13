@@ -12,6 +12,7 @@ export default function JobSearchPage() {
   const router = useRouter();
 
   useEffect(() => {
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setDarkMode(savedTheme === 'dark');
@@ -23,6 +24,7 @@ export default function JobSearchPage() {
     } else {
       // Default to light mode if no preference is saved
       setDarkMode(false);
+      document.body.classList.remove('dark');
     }
 
     const checkSession = async () => {
@@ -52,11 +54,14 @@ export default function JobSearchPage() {
     setDarkMode((prev) => {
       const newMode = !prev;
       localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      
+      // Directly manipulate the body class here
       if (newMode) {
         document.body.classList.add('dark');
       } else {
         document.body.classList.remove('dark');
       }
+      
       return newMode;
     });
   };
@@ -67,8 +72,9 @@ export default function JobSearchPage() {
     { id: 3, title: "Analista de Dados", company: "Data Insights", location: "Porto, Portugal" },
   ];
 
+  // We don't need the darkMode class on this div since we're applying it to body directly
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? "dark" : ""}`}>
+    <div className="min-h-screen font-sans">
       {/* Navbar */}
       <nav className="grad-bg p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold header-txt">
@@ -91,7 +97,7 @@ export default function JobSearchPage() {
 
       {/* Job Listings */}
       <div className="p-6 max-w-4xl mx-auto">
-        <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? "text-white" : "text-black"}`}>Job Opportunities</h2>
+        <h2 className="text-2xl font-semibold mb-4 page-text">Job Opportunities</h2>
         <div className="space-y-4">
           {jobs.map((job) => (
             <div key={job.id} className="p-4 rounded-md shadow-md job-theme">
