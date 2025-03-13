@@ -68,45 +68,42 @@ export default function JobSearchPage() {
   ];
 
   return (
-    <body className="job-theme">
-      <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
-        {/* Navbar */}
-        <nav className="grad-bg p-4 flex justify-between items-center">
+    <div className={`${darkMode ? "dark" : ""} min-h-screen bg-black text-white font-sans`}>
+      {/* Navbar */}
+      <nav className="grad-bg p-4 flex justify-between items-center">
         <h1 className={`text-xl font-bold ${darkMode ? "text-white" : "text-black"}`}>
           Bem-vindo, {sessionData?.user.email}
         </h1>
-          <div className="flex space-x-4">
-            <button 
-              onClick={toggleDarkMode} 
-              className="p-2 bg-btn-theme text-white rounded-full">
-              {darkMode ? '🌙' : '☀️'}
-            </button>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Logout
-            </button>
-          </div>
-        </nav>
+        <div className="flex space-x-4">
+          <button 
+            onClick={toggleDarkMode} 
+            className="p-2 bg-btn-theme text-white rounded-full">
+            {darkMode ? '🌙' : '☀️'}
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Logout
+          </button>
+        </div>
+      </nav>
 
       {/* Job Listings */}
-      
-        <div className="p-6 max-w-4xl mx-auto job-cards">
-          <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
-          <div className="space-y-4">
-            {jobs.map((job) => (
-              <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
-                <h3 className="text-xl font-bold job-title">{job.title}</h3>
-                <p className="job-company">{job.company} - {job.location}</p>
-                <button className="mt-2 font-bold py-1 px-4 rounded job-button">
-                  Candidatar-se
-                </button>
-              </div>
-            ))}
-          </div>
+      <div className="p-6 max-w-4xl mx-auto job-cards">
+        <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
+        <div className="space-y-4">
+          {jobs.map((job) => (
+            <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
+              <h3 className="text-xl font-bold job-title">{job.title}</h3>
+              <p className="job-company">{job.company} - {job.location}</p>
+              <button className="mt-2 font-bold py-1 px-4 rounded job-button">
+                Candidatar-se
+              </button>
+            </div>
+          ))}
         </div>
       </div>
-      </body>
+    </div>
   );
 }
