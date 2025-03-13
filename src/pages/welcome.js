@@ -73,7 +73,11 @@ export default function Welcome() {
     { id: 3, title: "Analista de Dados", company: "Data Insights", location: "Porto, Portugal" },
   ];
 
-  // We don't need the darkMode class on this div since we're applying it to body directly
+  // Handle Apply button click to show success toast
+  const handleApplyClick = () => {
+    toast.success("Thanks for applying!");
+  };
+
   return (
     <div className="min-h-screen font-sans">
       {/* Navbar */}
@@ -108,7 +112,9 @@ export default function Welcome() {
                 </a>
               </Link>
               <p className="job-company">{job.company} - {job.location}</p>
-              <button className="mt-2 font-bold py-1 px-4 rounded job-button">
+              <button 
+                onClick={handleApplyClick} 
+                className="mt-2 font-bold py-1 px-4 rounded job-button">
                 Apply
               </button>
             </div>

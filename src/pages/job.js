@@ -124,6 +124,7 @@ export default function Job() {
           ]
         }
       ];
+    
 
       const job = jobsData.find(job => job.id === parseInt(jobId));
       if (job) {
@@ -241,7 +242,8 @@ export default function Job() {
           </div>
           
           <div className="mt-6">
-            <button className="font-bold py-2 px-6 rounded-md job-button">
+            <button 
+              className="font-bold py-2 px-6 rounded-md job-button">
               Apply
             </button>
           </div>
