@@ -96,7 +96,7 @@ export default function JobSearchPage() {
       </nav>
 
       {/* Job Listings */}
-      <div className="p-6 max-w-4xl mx-auto">
+      <div className="p-6 max-w-4xl mx-auto job-theme-bg">
         <h2 className="text-2xl font-semibold mb-4 page-text">Job Opportunities</h2>
         <div className="space-y-4">
           {jobs.map((job) => (
