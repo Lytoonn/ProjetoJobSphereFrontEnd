@@ -147,3 +147,57 @@ nav.dark .header-txt{
 nav .header-txt{
     color: #e9e9e9;
 }
+
+body .job-theme{
+    background-color: (90deg, rgb(237, 218, 255) 0%, rgb(193, 190, 255) 100%);
+}
+
+body.dark .job-theme{
+    background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(0, 0, 0) 100%);
+}
+
+body .job-cards{
+    background-color: #CAC7FF;
+}
+
+body.dark .job-cards{
+    background-color: #333333;
+}
+
+body .job-title{
+    color: #13002e;
+}
+
+body.dark .job-title{
+    color: #ffffff;
+}
+
+body .job-company{
+    color: #523a61;
+}
+
+body.dark .job-company{
+    color: #a9a9a9;
+}
+
+body .job-button{
+    background-color: #1B0047;
+    color: #fefefe;
+
+}
+
+body.dark .job-button{
+    background-color: #BEBEBE;
+    color: #030303;
+}
+
+body .job-button:hover{
+    background-color: #3d1d6f;
+    color: #e0e0e0;
+    
+}
+
+body.dark .job-button:hover{
+    background-color: #b0afaf;
+    color: #313131;
+}

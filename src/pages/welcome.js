@@ -90,20 +90,22 @@ export default function JobSearchPage() {
       </nav>
 
       {/* Job Listings */}
-      <div className="p-6 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
-        <div className="space-y-4">
-          {jobs.map((job) => (
-            <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
-              <h3 className="text-xl font-bold text-blue-400">{job.title}</h3>
-              <p className="text-gray-300">{job.company} - {job.location}</p>
-              <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                Candidatar-se
-              </button>
-            </div>
-          ))}
+      <body className="job-theme">
+        <div className="p-6 max-w-4xl mx-auto job-cards">
+          <h2 className="text-2xl font-semibold mb-4">Oportunidades de Emprego</h2>
+          <div className="space-y-4">
+            {jobs.map((job) => (
+              <div key={job.id} className="bg-gray-800 p-4 rounded-md shadow-md">
+                <h3 className="text-xl font-bold job-title">{job.title}</h3>
+                <p className="job-company">{job.company} - {job.location}</p>
+                <button className="mt-2 font-bold py-1 px-4 rounded job-button">
+                  Candidatar-se
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
+        </body>
       </div>
-    </div>
   );
 }
