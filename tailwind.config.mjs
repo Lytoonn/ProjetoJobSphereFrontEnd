@@ -6,6 +6,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",// Include any files that use Tailwind CSS
     "./src/styles/**/*.css", // Include CSS files
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
